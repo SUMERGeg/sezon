@@ -1,0 +1,21 @@
+# Свободно растущие цветы
+
+2026-10-01: уточнение пользователя — заметнее декор и впечатление растущих по сайту цветов, без повторяющихся угловых картинок. Угловой asset больше не используется. Три самостоятельных формы идут вдоль краёв страницы, между каталогом/коллекциями и выходят за границы финального блока. Mobile пересобирает размеры; декоративные слои не принимают pointer events и не создают horizontal overflow.
+
+Режим: встроенный imagegen, оригинальные рисунки по пользовательским style references. Прозрачность сохранена при ресайзе/WebP, без художественного редактирования.
+
+Assets: `public/images/decor/rose-climber.webp`, `public/images/decor/meadow-trail.webp`, `public/images/decor/garden-shoot.webp`.
+
+Проверки: build/typecheck/lint успешны; 6 целевых browser tests passed на 390/1440 — базовые страницы, каталог/товар/коллекция и keyboard navigation; console/overflow без ошибок. Desktop/mobile screenshots главной и каталога просмотрены. Декор статический, эффект роста достигается композицией без непрерывного движения.
+
+## rose-climber
+
+Use case: stylized-concept. Create a NEW original delicate botanical watercolor illustration for a pastel green and pink flower shop website. Match the attached reference's fine colored-pencil stems, translucent watercolor washes, sage green foliage and powder pink flowers, but reinterpret naturally. Transparent alpha background, no paper rectangle, no text, no interface. Graceful irregular stems, botanical detail, gentle but clearly visible colors, no rigid corner, no L shape, no right-angle bends, no geometric frame, no dense bouquet, no heavy ornament. Entire plant including tapering tips visible with small transparent margin. Composition: very tall portrait 1:4. One long wild rose climbing stem winding upward in a loose asymmetric S, with several slender lateral tendrils, 6 small blush pink five-petaled wild roses, a few buds, delicate sage leaves. Stem meanders left and right organically, air between blossoms; no ribbon. A natural plant growing up the side of a page, not an edge or border graphic.
+
+## meadow-trail
+
+Use case: stylized-concept. Create a NEW original delicate botanical watercolor illustration for a pastel green and pink flower shop website. Match the attached reference's fine colored-pencil stems, translucent watercolor washes, sage green foliage and powder pink flowers, but reinterpret naturally. Transparent alpha background, no paper rectangle, no text, no interface. Graceful irregular stems, botanical detail, gentle but clearly visible colors, no rigid corner, no L shape, no right-angle bends, no geometric frame, no dense bouquet, no heavy ornament. Entire plant including tapering tips visible with small transparent margin. Composition: very wide horizontal 4:1. A gently flowing low meadow vine, thin intertwined stems moving from lower left to upper right in a shallow undulating curve, tiny powder pink sweet pea flowers mixed with ivory star-shaped blossoms and sparse sage leaves. An open graceful floral trail with varied rhythm, no repeated pattern, no corners, no ribbon. Lots of transparent space, organic tapering ends.
+
+## garden-shoot
+
+Use case: stylized-concept. Create a NEW original delicate botanical watercolor illustration for a pastel green and pink flower shop website. Match the attached reference's fine colored-pencil stems, translucent watercolor washes, sage green foliage and powder pink flowers, but reinterpret naturally. Transparent alpha background, no paper rectangle, no text, no interface. Graceful irregular stems, botanical detail, gentle but clearly visible colors, no rigid corner, no L shape, no right-angle bends, no geometric frame, no dense bouquet, no heavy ornament. Entire plant including tapering tips visible with small transparent margin. Composition: tall portrait 1:4. One airy climbing botanical shoot, slender curving green stem with two fine branching offshoots near the upper half, pale pink miniature climbing roses and small white blossoms, sparse soft sage leaves and tiny curled tendrils. Grows diagonally and then upward, asymmetrical, different from a straight rose vine, no ribbon, no border. Large transparent gaps and naturally tapered tips.

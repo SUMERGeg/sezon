@@ -1,0 +1,77 @@
+{
+  "hero": {
+    "src": "/images/flowers/hero.webp",
+    "width": 1536,
+    "height": 1024
+  },
+  "first-light": {
+    "src": "/images/flowers/first-light.webp",
+    "width": 1000,
+    "height": 1250
+  },
+  "quiet-pink": {
+    "src": "/images/flowers/quiet-pink.webp",
+    "width": 1000,
+    "height": 1250
+  },
+  "green-line": {
+    "src": "/images/flowers/green-line.webp",
+    "width": 1000,
+    "height": 1250
+  },
+  "warm-garden": {
+    "src": "/images/flowers/warm-garden.webp",
+    "width": 1000,
+    "height": 1250
+  },
+  "white-bunch": {
+    "src": "/images/flowers/white-bunch.webp",
+    "width": 1000,
+    "height": 1250
+  },
+  "red-accent": {
+    "src": "/images/flowers/red-accent.webp",
+    "width": 1000,
+    "height": 1250
+  },
+  "cream": {
+    "src": "/images/flowers/cream.webp",
+    "width": 1000,
+    "height": 1250
+  },
+  "field": {
+    "src": "/images/flowers/field.webp",
+    "width": 1000,
+    "height": 1250
+  },
+  "tulips-white": {
+    "src": "/images/flowers/tulips-white.webp",
+    "width": 1000,
+    "height": 1250
+  },
+  "tulips-wine": {
+    "src": "/images/flowers/tulips-wine.webp",
+    "width": 1000,
+    "height": 1250
+  },
+  "matthiola": {
+    "src": "/images/flowers/matthiola.webp",
+    "width": 1000,
+    "height": 1250
+  },
+  "green-bowl": {
+    "src": "/images/flowers/green-bowl.webp",
+    "width": 1000,
+    "height": 1250
+  },
+  "rose-cloud": {
+    "src": "/images/flowers/rose-cloud.webp",
+    "width": 1000,
+    "height": 1250
+  },
+  "season-box": {
+    "src": "/images/flowers/season-box.webp",
+    "width": 1000,
+    "height": 1250
+  }
+}

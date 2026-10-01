@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="750" viewBox="0 0 600 750">
+  <rect width="600" height="750" fill="#ECE5DA"/>
+  <path d="M300 280v155m-55-60 55 60 55-60" fill="none" stroke="#244433" stroke-width="2"/>
+  <circle cx="300" cy="260" r="22" fill="none" stroke="#713D49" stroke-width="2"/>
+  <text x="300" y="520" text-anchor="middle" fill="#244433" font-family="Arial,sans-serif" font-size="20">Фотография готовится</text>
+</svg>

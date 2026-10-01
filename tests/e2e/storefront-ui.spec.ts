@@ -1,0 +1,70 @@
+import { expect, test } from "@playwright/test";
+
+test("фильтры, chips, sort и history работают без document reload", async ({ page }, testInfo) => {
+  await page.goto("/shop?campaign=portfolio");
+  await page.evaluate(() => { (window as Window & { sessionMarker?: string }).sessionMarker = "same-document"; });
+  const mobile = testInfo.project.name === "mobile";
+  if (mobile) await page.getByRole("button", { name: /^Фильтры/ }).click();
+  const controls = mobile ? page.getByRole("dialog", { name: "Фильтры каталога" }) : page.getByRole("region", { name: "Фильтры каталога" });
+  await controls.getByRole("checkbox", { name: "День рождения", exact: true }).check();
+  await controls.getByRole("checkbox", { name: "Светлая", exact: true }).check();
+  if (mobile) await controls.getByRole("button", { name: /^Показать/ }).click();
+  await expect(page.getByRole("list", { name: "Букеты и композиции" }).getByRole("listitem")).toHaveCount(1);
+  await expect(page.getByRole("button", { name: "Убрать фильтр: День рождения" })).toBeVisible();
+  await page.getByRole("button", { name: "Убрать фильтр: День рождения" }).click();
+  await expect(page.getByRole("list", { name: "Букеты и композиции" }).getByRole("listitem")).toHaveCount(5);
+  await page.goBack();
+  await expect(page.getByRole("list", { name: "Букеты и композиции" }).getByRole("listitem")).toHaveCount(1);
+  await page.getByRole("button", { name: "Сбросить фильтры", exact: true }).first().click();
+  await expect(page.getByRole("list", { name: "Букеты и композиции" }).getByRole("listitem")).toHaveCount(14);
+  await page.getByRole("combobox", { name: "Сортировка", exact: true }).click();
+  await page.getByRole("option", { name: "Цена по возрастанию", exact: true }).click();
+  await expect(page.getByRole("list", { name: "Букеты и композиции" }).getByRole("heading").first()).toHaveText("Белые тюльпаны");
+  await expect(page).toHaveURL(/campaign=portfolio/);
+  expect(await page.evaluate(() => (window as Window & { sessionMarker?: string }).sessionMarker)).toBe("same-document");
+});
+
+test("выбор размера меняет цену и доступность; gallery доступна кнопками", async ({ page }) => {
+  await page.goto("/shop/first-light");
+  const medium = page.getByRole("radio", { name: /^M / });
+  await medium.check();
+  await expect(page.locator(".selected-price")).toContainText("6 300");
+  await expect(page.getByRole("status", { name: "Доступность варианта" })).toContainText("Недоступен");
+  await expect(page.getByRole("button", { name: "В корзину", exact: true })).toBeDisabled();
+  await medium.focus();
+  await page.keyboard.press("ArrowRight");
+  await expect(page.getByRole("radio", { name: /^L / })).toBeChecked();
+  await expect(page.locator(".selected-price")).toContainText("8 100");
+  await expect(page.getByRole("status", { name: "Доступность варианта" })).toContainText("Доступен");
+  await page.getByRole("checkbox", { name: "Добавить открытку" }).check();
+  await page.getByRole("button", { name: "Следующее фото" }).click();
+  await expect(page.getByRole("status", { name: "Номер фотографии" })).toHaveText("2 / 3");
+  await page.getByRole("button", { name: "Предыдущее фото" }).click();
+  await expect(page.getByRole("status", { name: "Номер фотографии" })).toHaveText("1 / 3");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
+test("мобильные menu/filter dialogs закрываются Escape и возвращают focus", async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== "mobile", "Мобильные controls");
+  await page.goto("/shop");
+  const menu = page.getByRole("button", { name: "Открыть меню" });
+  await menu.click();
+  const dialog = page.getByRole("dialog", { name: "Навигация" });
+  await expect(dialog).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(dialog).not.toBeVisible();
+  await expect(menu).toBeFocused();
+  await menu.click();
+  await dialog.getByRole("link", { name: "Букеты", exact: true }).click();
+  await expect(dialog).not.toBeVisible();
+  const filters = page.getByRole("button", { name: /^Фильтры/ });
+  await filters.click();
+  const filterDialog = page.getByRole("dialog", { name: "Фильтры каталога" });
+  await expect(filterDialog).toBeVisible();
+  await page.keyboard.press("Shift+Tab");
+  await page.keyboard.press("Tab");
+  expect(await filterDialog.evaluate((element) => element.contains(document.activeElement))).toBe(true);
+  await page.keyboard.press("Escape");
+  await expect(filterDialog).not.toBeVisible();
+  await expect(filters).toBeFocused();
+});

@@ -1,0 +1,68 @@
+/* Pastel accents carry the decoration; text keeps a botanical, readable tone. */
+:root {
+  --decor-climber: var(--decor-climber-desktop, image-set(url("/_next/image?url=%2Fimages%2Fdecor%2Frose-climber.webp&w=256&q=75") 1x, url("/_next/image?url=%2Fimages%2Fdecor%2Frose-climber.webp&w=384&q=75") 2x, url("/_next/image?url=%2Fimages%2Fdecor%2Frose-climber.webp&w=640&q=75") 3x));
+  --decor-shoot: var(--decor-shoot-desktop, image-set(url("/_next/image?url=%2Fimages%2Fdecor%2Fgarden-shoot.webp&w=256&q=75") 1x, url("/_next/image?url=%2Fimages%2Fdecor%2Fgarden-shoot.webp&w=384&q=75") 2x, url("/_next/image?url=%2Fimages%2Fdecor%2Fgarden-shoot.webp&w=640&q=75") 3x));
+  --decor-trail: var(--decor-trail-desktop, image-set(url("/_next/image?url=%2Fimages%2Fdecor%2Fmeadow-trail.webp&w=640&q=75") 1x, url("/_next/image?url=%2Fimages%2Fdecor%2Fmeadow-trail.webp&w=1200&q=75") 2x, url("/_next/image?url=%2Fimages%2Fdecor%2Fmeadow-trail.webp&w=1920&q=75") 3x));
+}
+.site-header { background: var(--white); }
+.brand-name, .footer-brand { color: var(--pine); }
+.brand-caption { color: var(--wine); }
+.eyebrow { color: var(--pine); }
+.cart-count { color: var(--wine); }
+.button { background: var(--sage-accent); border-color: var(--sage-line); color: var(--ink); }
+.button:hover { background: var(--surface-2); border-color: var(--pine); color: var(--ink); }
+.button-secondary, .filter-trigger { background: var(--rose-soft); border-color: var(--rose-line); }
+.filter-chip { background: var(--rose-soft); border-color: var(--rose-line); color: var(--wine); }
+.size-option:has(input:checked), .delivery-option:has(input:checked) { background: var(--sage-soft); border-color: var(--pine); }
+.gallery-thumbnails button[aria-pressed="true"] { background: var(--rose-soft); border-color: var(--wine); }
+.hero-footnote { color: var(--wine); }
+.hero-figure img, .collection-photo { border-radius: var(--radius-media); }
+.season-story { position: relative; overflow: hidden; background: var(--sage-soft); color: var(--ink); border-block: 1px solid var(--line); }
+.story-inner { position: relative; z-index: 1; }
+.story-inner a:hover { color: var(--wine); }
+.story-inner :focus-visible { outline-color: var(--wine); }
+.season-story::after { content: ""; position: absolute; right: -28px; bottom: -75px; width: 150px; height: 440px; background: var(--decor-shoot) center / contain no-repeat; opacity: .9; pointer-events: none; transform: rotate(-9deg); }
+.final-cta { position: relative; background: var(--rose-soft); border: 1px solid var(--rose-line); border-radius: var(--radius-media); margin-block: var(--space-4) var(--space-12); padding-inline: var(--space-8); }
+.final-cta::before, .final-cta::after { content: ""; position: absolute; background-position: center; background-size: contain; background-repeat: no-repeat; opacity: .95; pointer-events: none; }
+.final-cta::before { left: -32px; bottom: -45px; width: 180px; height: 420px; background-image: var(--decor-shoot); transform: rotate(11deg); }
+.final-cta::after { right: -25px; top: -80px; width: 150px; height: 370px; background-image: var(--decor-climber); transform: rotate(-12deg); }
+.final-cta > * { position: relative; }
+.site-footer { background: var(--rose-soft); border-color: var(--rose-line); }
+.cart-summary, .checkout-summary, .checkout-success { border: 1px solid var(--sage-line); border-radius: var(--radius-media); }
+.checkout-disclosure { background: var(--rose-soft); border-left-color: var(--petal); }
+.quantity-control { background: var(--white); }
+.cart-thumbnail img, .checkout-products img { border-radius: 4px; }
+#main-content { position: relative; isolation: isolate; overflow: clip; }
+#main-content > * { position: relative; z-index: 1; }
+#main-content::before, #main-content::after { content: ""; position: absolute; z-index: 0; background-position: center; background-size: contain; background-repeat: no-repeat; pointer-events: none; opacity: .9; }
+#main-content::before { right: -64px; top: 80px; width: 130px; height: 760px; background-image: var(--decor-climber); transform: rotate(-5deg); }
+#main-content::after { left: -68px; top: 820px; width: 130px; height: 850px; background-image: var(--decor-shoot); transform: rotate(5deg); }
+.home-collections { position: relative; padding-bottom: 180px; }
+.home-collections::after, .collections-section::before { content: ""; position: absolute; width: 540px; height: 180px; background: var(--decor-trail) center / contain no-repeat; pointer-events: none; opacity: .95; }
+.home-collections::after { left: calc(50% - 270px); bottom: -8px; transform: rotate(-5deg); }
+.collections-section { position: relative; margin-top: 100px; padding-top: 100px; }
+.collections-section::before { top: -65px; left: 22%; transform: rotate(3deg); }
+@media (max-width: 1000px) {
+  #main-content::before { right: -86px; }
+  #main-content::after { left: -90px; }
+  .final-cta::before { width: 120px; height: 320px; left: -36px; }
+  .final-cta::after { width: 110px; height: 280px; right: -36px; }
+}
+@media (max-width: 767px) {
+  :root {
+    --decor-climber: var(--decor-climber-mobile, image-set(url("/_next/image?url=%2Fimages%2Fdecor%2Frose-climber.webp&w=128&q=75") 1x, url("/_next/image?url=%2Fimages%2Fdecor%2Frose-climber.webp&w=256&q=75") 2x, url("/_next/image?url=%2Fimages%2Fdecor%2Frose-climber.webp&w=384&q=75") 3x));
+    --decor-shoot: var(--decor-shoot-mobile, image-set(url("/_next/image?url=%2Fimages%2Fdecor%2Fgarden-shoot.webp&w=128&q=75") 1x, url("/_next/image?url=%2Fimages%2Fdecor%2Fgarden-shoot.webp&w=256&q=75") 2x, url("/_next/image?url=%2Fimages%2Fdecor%2Fgarden-shoot.webp&w=384&q=75") 3x));
+    --decor-trail: var(--decor-trail-mobile, image-set(url("/_next/image?url=%2Fimages%2Fdecor%2Fmeadow-trail.webp&w=384&q=75") 1x, url("/_next/image?url=%2Fimages%2Fdecor%2Fmeadow-trail.webp&w=640&q=75") 2x, url("/_next/image?url=%2Fimages%2Fdecor%2Fmeadow-trail.webp&w=1080&q=75") 3x));
+  }
+  #main-content::before { width: 88px; height: 560px; right: -76px; top: 170px; transform: none; }
+  #main-content::after { width: 90px; height: 620px; left: -79px; top: 950px; transform: none; }
+  .home-collections { padding-bottom: 115px; }
+  .home-collections::after, .collections-section::before { width: 300px; height: 100px; }
+  .home-collections::after { left: calc(50% - 150px); bottom: 0; }
+  .collections-section { margin-top: 80px; padding-top: 65px; }
+  .collections-section::before { left: calc(50% - 150px); top: -35px; }
+  .season-story::after { width: 92px; height: 320px; right: -65px; bottom: -50px; transform: rotate(-5deg); }
+  .final-cta { padding-inline: var(--space-4); padding-block: var(--space-16); }
+  .final-cta::before { width: 85px; height: 220px; left: -42px; bottom: -35px; transform: rotate(8deg); }
+  .final-cta::after { width: 85px; height: 220px; right: -42px; top: -70px; transform: rotate(-8deg); }
+}
