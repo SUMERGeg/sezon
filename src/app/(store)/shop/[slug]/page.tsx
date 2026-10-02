@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { LinkArrow } from "@/components/ui/link-arrow";
 import { notFound } from "next/navigation";
 import { catalog } from "@/data/catalog";
 import { getProductBySlug } from "@/domain/catalog/selectors";
@@ -35,7 +36,7 @@ export default async function ProductPage({ params }: Props) {
           <p className="page-description">{product.description}</p>
           <ProductOptions product={product} />
           <p className="seasonal-disclosure">{product.seasonalNote}</p>
-          <Link className="text-link" href="/delivery-care">Доставка и уход <span aria-hidden="true">↗</span></Link>
+          <Link className="text-link" href="/delivery-care">Доставка и уход <LinkArrow /></Link>
           <ul className="product-collections" aria-label="Коллекции товара">{catalog.collections.filter((collection) => product.collectionIds.includes(collection.id)).map((collection) => <li key={collection.id}><Link href={`/collections/${collection.slug}`}>{collection.name}</Link></li>)}</ul>
         </div>
       </div>

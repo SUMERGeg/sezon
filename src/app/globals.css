@@ -81,6 +81,7 @@ h2 { font-size: clamp(26px, 2.3vw, 34px); line-height: 1.25; letter-spacing: -0.
 .button { display: inline-flex; justify-content: center; align-items: center; min-height: 48px; padding: var(--space-3) var(--space-8); border: 1px solid var(--pine); border-radius: var(--radius-control); background: var(--pine); color: var(--white); font-size: 14px; font-weight: 500; text-decoration: none; transition: background-color 150ms, color 150ms; }
 .button:hover { background: var(--ink); color: var(--white); }
 .text-link { display: inline-flex; align-items: center; gap: var(--space-4); min-height: 44px; font-size: 14px; }
+.link-arrow { flex-shrink: 0; vertical-align: -0.12em; }
 .season-note { min-width: 0; padding: var(--space-12); background: var(--surface); border-top: 1px solid var(--line); }
 .season-note h2 { font-size: clamp(34px, 3.5vw, 50px); line-height: 1.18; }
 .season-note h2 span { color: var(--wine); }
